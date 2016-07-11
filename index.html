@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">	
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<meta name="description" content="" />
+<meta name="keywords" content="табы css, вкладки css3, адаптивные вкладки" />
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<style>
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+}
+body {
+  font: 14px/1 "Open Sans", sans-serif;
+  font-weight: 600;
+  color: #555;
+  font-family: Consolas, Monaco, monospace;
+  background-color: slategray;
+  background-image: linear-gradient(90deg, transparent, white ),
+    repeating-linear-gradient(60deg, rgba(255,255,255,.15), rgba(255,255,255,.15) 40px, transparent 40px, transparent 80px);
+}
+#container > h1 {
+  font-size: 35px;
+  color: firebrick;
+  text-shadow: .05em .05em #222222; 
+}
+h3 {
+  text-shadow: 0px 0px 3px gray;
+  /*text-shadow: .05em .05em firebrick; */
+}
+/*стили фиксированного меню*/
+.top-nav {
+    background: #555555;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+    left: 0;
+    opacity: 0.95;
+    padding: 8px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 9999;
+}
+.topnav-wrapper {
+    margin: 0 auto;
+    max-width: 980px;
+}
+.top-logo {
+    color: #ddd;
+    font: bold 16px/20px "Crete Round",serif;
+    padding-left: 10px;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+.top-logo a{
+color: #B8B8B8;
+text-decoration: none;    
+}
+.top-logo a:hover{
+color: #ddd;
+}
+.topnav-right {
+    float: right;
+}
+.right-menu {
+    margin: 0;
+    overflow: hidden;
+}
+.right-menu  li {
+    float: left;
+    list-style-type: none;
+    margin: 0;
+}
+.right-menu li a {
+    color: #B8B8B8;
+    display: block;
+    padding: 0.05em 0.75em;
+    text-decoration: none;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+}
+.right-menu li a:hover {
+    color: #fff;
+    text-shadow: none;
+}
+.right-menu li span {
+font-size: 16px;
+line-height: 1.2;
+}
+    
+#container {
+max-width: 1100px;
+margin: 0 auto;
+padding: 25px 10px 0;
+}
+h1 {
+  padding: 50px 0;
+  font-weight: 600;
+  text-align: center;
+}
+p {
+  margin: 0 0 5px;
+  line-height: 1.5;
+}
+.info{
+  color:rgba(78, 78, 78, 0.8);
+  width:100%;
+  margin: 40px auto;
+  text-align: center;
+  font-weight:300;
+}
+.info a {
+    color: #bbb;
+    text-decoration:none;
+}
+.info a:hover {
+    color: firebrick;
+}
+/* Конец стилей демо-страницы */
+    
+/* Базовый контейнер табов */
+.tabs {
+  min-width: 320px;
+  max-width: 800px;
+  padding: 0px;
+  margin: 0 auto;
+  
+}
+/* Стили секций с содержанием */
+section {
+  display: none;
+  padding: 15px;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+.tabs input {
+  display: none;
+}
+/* Стили вкладок (табов) */
+.tabs label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #aaa;
+  border: 1px solid #ddd;
+  background: #f1f1f1;
+  border-radius: 3px 3px 0 0;
+}
+/* Шрифт-иконки от Font Awesome в формате Unicode */
+.tabs label:before {
+  font-family: fontawesome;
+  font-weight: normal;
+  margin-right: 10px;
+}
+.tabs label[for*="1"]:before {
+  content: "\f21b";
+}
+.tabs label[for*="2"]:before {
+  content: "\f21b";
+}
+.tabs label[for*="3"]:before {
+  content: "\f21b";
+}
+.tabs label[for*="4"]:before {
+  content: "\f21b";
+}
+/* изменения стиля заголовков вкладок при наведении */
+.tabs label:hover {
+  color: #888;
+  cursor: pointer;
+}
+/* стили для активной вкладки */
+.tabs input:checked + label {
+  color: #555;
+  border: 1px solid #ddd;
+  border-top: 1px solid #009933;
+  border-bottom: 1px solid #fff;
+  background: #fff;
+}
+/* активация секций с помощью переключателя :checked */
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4 {
+  display: block;
+}
+/* медиа запросы для различных типов носителей */  
+@media screen and (max-width: 680px) {
+  .tabs label {
+    font-size: 0;
+  }
+
+  .tabs label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .tabs label {
+    padding: 15px;
+  }
+}    
+</style>
+</head>
+<body>
+<div id="container">
+    <h1>
+        Soft Skills Home Work 2
+    </h1>
+    <div class="tabs">
+        <input id="tab1" type="radio" name="tabs" checked>
+        <label for="tab1" title="Интервью 1"><i class="fa fa-user-secret" aria-hidden="true"></i>Интервью 1</label>
+    
+        <input id="tab2" type="radio" name="tabs">
+        <label for="tab2" title="Интервью 2"><i class="fa fa-user-secret" aria-hidden="true"></i>Интервью 2</label>
+    
+        <input id="tab3" type="radio" name="tabs">
+        <label for="tab3" title="Интервью 3"><i class="fa fa-user-secret" aria-hidden="true"></i>Интервью 3</label>
+    
+        <input id="tab4" type="radio" name="tabs">
+        <label for="tab4" title="Интервью 4"><i class="fa fa-user-secret" aria-hidden="true"></i>Интервью 3</label>
+    
+        <section id="content1">
+        <h3>Как происходит вхождение новичка в команду?</h3>
+        <br>
+           <p>
+              Обычно очень плохо, особенно на первых неделях. Ситуация такова, что приходит новый человек и возможны следующие варианты: это гость из другого офиса кто-то не понятный новый спивробиник неизвестно по какой команды Проблема в том, что руководство сосредоточено в других городах, а в нашем офисе часто появляются и зникаюь люди, о которых нам ничего не сообщают и не знакомят с ними. А еще команды сидят по разным кабинетам и не всегда понятно, что происходит по соседству Обычно знакомство с новыми сотрудниками происходит после 1-2 недель, когда становится понятно, что работник приихавна долго и уже началась какая-то совместная работа В идеале я бы хотел, чтобы это выглядело так: кто-то из руководства приводил нового сотрудника и знакомил с ним, тогда было бы понятно кто это и чем он здесь занимается.
+           </p>
+            <br>
+           <h3>Какие причины конфликтов бывают?</h3>
+        <br>
+           <p>
+              Как таковых конфликтов не бывает. Часто бывают недоразумения, випливаються силу специфики работы на расстоянии и розсоредження работников даже одной команды в разных городах. Также иногда возникают казусы в общении, особенно когда кто-то пишет в скайпе не в тот чат (например частную информацию случайно пишет в общий чат, где это читают 50 человек и долго смеются).
+           </p>
+            <br>
+           <h3>Какие ресурсы читать и смотреть "новобранцу"?</h3>
+        <br>
+           <p>
+              Все зависит от направления. Есть список требований, которым должен соответствовать новобранец. Если это направление Web, то я бы рекомендовал онлайн курсы: <a href="https://www.codeschool.com/">https://www.codeschool.com/</a> http://www.w3schools.com/ https://www.codeschool.com/ http://prometheus.org.ua/ Также стоит завести себе аккаунт на сайтах https://github.com/ и http://codepen.io/ Кроме этого есть много различных учебных сайтов, сервисов, генераторов и т.п. Чтобы быть в курсе событий, я бы рекомендовал подписаться на сайты: https://www.smashingmagazine.com/ https://css-tricks.com/ http://tutorialzine.com/ и много много других
+           </p>
+           
+       </section>  
+       <section id="content2">
+           
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, sapiente labore maxime facere fuga ea amet et sint fugit aspernatur exercitationem beatae, eum, voluptates quod eaque. Aperiam, at culpa ex!
+        </section> 
+        <section id="content3">
+            Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Обеспечивает семь текстами коварных собрал строчка заманивший вопрос взгляд океана ручеек подпоясал грустный рекламных, буквоград о, взобравшись грамматики вершину последний.
+      
+        </section> 
+        <section id="content4">
+            Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Залетают послушавшись, своих несколько запятых необходимыми агенство обеспечивает ручеек текста. Диких все она, своего семантика языкового лучше всеми рыбными это.
+        </section>    
+   </div>
+      <div class="info">
+           <a href="https://www.facebook.com/groups/1305024502859062/"><i class="fa fa-facebook"></i> Команда #5</a>
+      </div>
+</div>
+</body>
+</html>
